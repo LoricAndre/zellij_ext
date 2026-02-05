@@ -89,6 +89,19 @@ plugins {
 }
 ```
 
+### First Run: Granting Permissions
+
+On first launch, the plugin will request permissions. You'll see a permission dialog appear. Press **'y'** or **'a'** (allow all) to grant the required permissions:
+
+- ReadApplicationState
+- ChangeApplicationState
+- RunCommands
+- OpenTerminalsOrPlugins
+- WriteToStdin
+- ReadCliPipes
+
+Once granted, these permissions are cached and the plugin will work automatically in all future sessions.
+
 ### Features
 
 #### Session Manager

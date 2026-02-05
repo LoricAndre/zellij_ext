@@ -35,14 +35,14 @@ impl ZellijPlugin for State {
             EventType::PaneClosed,
             EventType::PermissionRequestResult,
         ]);
-        set_selectable(false);
-        hide_self();
     }
 
     fn update(&mut self, event: Event) -> bool {
         match event {
             Event::PermissionRequestResult(PermissionStatus::Granted) => {
                 self.got_permissions = true;
+                set_selectable(false);
+                hide_self();
             }
             Event::SessionUpdate(sessions, resurrectable) => {
                 self.sm.sessions = sessions;
