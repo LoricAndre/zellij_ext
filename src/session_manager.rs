@@ -107,7 +107,8 @@ fn launch_sk(sm: &mut SessionManagerState) {
             "ITEM=$(echo \"$RESULT\" | sed -n 2p); ",
             "if [ -n \"$ITEM\" ]; then ",
             "zellij pipe --name session-action --args \"key=$KEY\" -- \"$ITEM\"; ",
-            "fi",
+            "fi; ",
+            "zellij action close-pane",
         ),
         items = items_escaped,
     );
