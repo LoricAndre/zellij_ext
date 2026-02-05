@@ -1,0 +1,41 @@
+plugins {
+    zellij-ext location="file:target/wasm32-wasip1/debug/zellij-ext.wasm"
+}
+
+layout {
+    cwd "."
+    pane size=1 borderless=true {
+        plugin location="tab-bar"
+    }
+    pane edit="src/main.rs" size="80%"
+    pane
+    pane size=1 borderless=true {
+        plugin location="status-bar"
+    }
+    floating_panes {
+        pane {
+            plugin location="zellij-ext"
+        }
+    }
+}
+
+keybinds {
+    shared {
+        bind "Alt s" {
+            MessagePlugin "zellij-ext" {
+                name "session-manager"
+            }
+        }
+        bind "Alt t" {
+            MessagePlugin "zellij-ext" {
+                name "toggle-task"
+                payload "htop"
+            }
+        }
+        bind "Alt h" {
+            MessagePlugin "zellij-ext" {
+                name "hide-all-tasks"
+            }
+        }
+    }
+}
